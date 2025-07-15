@@ -1,8 +1,51 @@
-# E-commerce-Support-Agent-Grader
-E-commerce Support Agent GraderThis project is a complete, interactive web application for A/B testing AI-powered e-commerce support agents. It allows users to enter any customer query, dynamically generates a realistic test case, and evaluates two different agent personas ("Concise" vs. "Empathetic") using the actual judgeval library.The application sends real traces and evaluation data to your Judgment Labs portal, providing a tangible demonstration of how to rigorously test, monitor, and improve agent systems.✨ FeaturesInteractive Web UI: A clean, easy-to-use frontend built with HTML and Tailwind CSS.Dynamic Test Case Generation: Enter any customer query, and the application's AI will generate a plausible "Company Policy" (retrieval context) and a "Golden Answer" (expected output) on the fly.Live A/B Testing: Pits a "Concise" agent against an "Empathetic" agent in real-time.Real judgeval Integration: Utilizes a Python backend to run actual judgeval scorers, including built-in scorers and a custom EmpathyScorer.Direct-to-Portal Tracing: All agent interactions and evaluations are sent as traces to your specified project in the Judgment Labs portal.Real-time Score Display: The frontend immediately displays the actual scores returned by the judgeval evaluation for instant feedback.E-commerce Guardrails: Includes a basic AI-powered guardrail to ensure test queries are relevant to an e-commerce context.⚙️ How It WorksThis application uses a client-server architecture:Frontend (index.html): A static web page that runs in the user's browser. It captures the user's query and communicates with the backend.Backend (app.py): A lightweight Python server built with Flask. It receives requests from the frontend, runs all the AI and judgeval logic, and sends the results back. This is where the real judgeval library is used.🚀 Setup and InstallationFollow these steps to get the application running on your local machine.1. PrerequisitesPython 3.8+An active OpenAI API KeyYour Judgment Labs API Key and Organization ID2. Clone the RepositoryFirst, clone the project repository to your local machine.git clone <your-repository-url>
-cd <repository-name>
+# E-commerce Support Agent Grader
 
-3. Create a Virtual EnvironmentIt's highly recommended to use a virtual environment to manage dependencies.# Create the virtual environment
+This project is a complete, interactive web application for A/B testing AI-powered e-commerce support agents. It allows users to enter any customer query, dynamically generates a realistic test case, and evaluates two different agent personas ("Concise" vs. "Empathetic") using the actual `judgeval` library.
+
+The application sends real traces and evaluation data to your Judgment Labs portal, providing a tangible demonstration of how to rigorously test, monitor, and improve agent systems.
+
+## ✨ Features
+
+* **Interactive Web UI:** A clean, easy-to-use frontend built with HTML and Tailwind CSS.
+* **Dynamic Test Case Generation:** Enter any customer query, and the application's AI will generate a plausible "Company Policy" (retrieval context) and a "Golden Answer" (expected output) on the fly.
+* **Live A/B Testing:** Pits a "Concise" agent against an "Empathetic" agent in real-time.
+* **Real `judgeval` Integration:** Utilizes a Python backend to run actual `judgeval` scorers, including built-in scorers and a custom `EmpathyScorer`.
+* **Direct-to-Portal Tracing:** All agent interactions and evaluations are sent as traces to your specified project in the Judgment Labs portal.
+* **Real-time Score Display:** The frontend immediately displays the actual scores returned by the `judgeval` evaluation for instant feedback.
+* **E-commerce Guardrails:** Includes a basic AI-powered guardrail to ensure test queries are relevant to an e-commerce context.
+
+## ⚙️ How It Works
+
+This application uses a client-server architecture:
+
+1.  **Frontend (`index.html`):** A static web page that runs in the user's browser. It captures the user's query and communicates with the backend.
+2.  **Backend (`app.py`):** A lightweight Python server built with Flask. It receives requests from the frontend, runs all the AI and `judgeval` logic, and sends the results back. This is where the real `judgeval` library is used.
+
+## 🚀 Setup and Installation
+
+Follow these steps to get the application running on your local machine.
+
+### 1. Prerequisites
+
+* Python 3.8+
+* An active OpenAI API Key
+* Your Judgment Labs API Key and Organization ID
+
+### 2. Clone the Repository
+
+First, clone the project repository to your local machine.
+
+```bash
+git clone <your-repository-url>
+cd <repository-name>
+```
+
+### 3. Create a Virtual Environment
+
+It's highly recommended to use a virtual environment to manage dependencies.
+
+```bash
+# Create the virtual environment
 python -m venv venv
 
 # Activate it
@@ -10,10 +53,22 @@ python -m venv venv
 source venv/bin/activate
 # On Windows:
 .\venv\Scripts\activate
+```
 
-4. Install DependenciesInstall the required Python libraries from the requirements.txt file.pip install -r requirements.txt
+### 4. Install Dependencies
 
-5. Set Environment VariablesThe application requires three environment variables to connect to the OpenAI and Judgment Labs APIs.# On macOS/Linux
+Install the required Python libraries from the `requirements.txt` file.
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Set Environment Variables
+
+The application requires three environment variables to connect to the OpenAI and Judgment Labs APIs.
+
+```bash
+# On macOS/Linux
 export OPENAI_API_KEY="sk-..."
 export JUDGMENT_API_KEY="..."
 export JUDGMENT_ORG_ID="..."
@@ -22,15 +77,64 @@ export JUDGMENT_ORG_ID="..."
 set OPENAI_API_KEY="sk-..."
 set JUDGMENT_API_KEY="..."
 set JUDGMENT_ORG_ID="..."
+```
 
-▶️ Running the ApplicationThe application requires two components to be running simultaneously: the Python backend and the HTML frontend.1. Start the Python BackendIn your terminal (with the virtual environment activated and environment variables set), run the following command:python app.py
+## ▶️ Running the Application
 
-You should see output indicating that the server is running, something like:* Running on http://127.0.0.1:5001Keep this terminal window open.2. Open the FrontendIn your file explorer, find the index.html file and open it with your preferred web browser (e.g., Chrome, Firefox, Safari).You can now use the application! Enter a query, click "Run Test", and see the results appear in the UI and in your Judgment Labs portal.📦 Git Repository ContentsTo make this project shareable and reproducible, your Git repository should contain the following files:app.pyThe core Python Flask server that contains all backend logic, agent definitions, and judgeval integration.index.htmlThe interactive user interface that runs in the browser and communicates with the app.py backend.requirements.txtThis file lists all the Python dependencies required to run the backend server. This allows others to install the exact same libraries you used.Flask
+The application requires two components to be running simultaneously: the Python backend and the HTML frontend.
+
+### 1. Start the Python Backend
+
+In your terminal (with the virtual environment activated and environment variables set), run the following command:
+
+```bash
+python app.py
+```
+
+You should see output indicating that the server is running, something like:
+`* Running on http://127.0.0.1:5001`
+
+**Keep this terminal window open.**
+
+### 2. Open the Frontend
+
+In your file explorer, find the `index.html` file and open it with your preferred web browser (e.g., Chrome, Firefox, Safari).
+
+You can now use the application! Enter a query, click "Run Test", and see the results appear in the UI and in your Judgment Labs portal.
+
+## 📦 Git Repository Contents
+
+To make this project shareable and reproducible, your Git repository should contain the following files:
+
+#### `app.py`
+
+The core Python Flask server that contains all backend logic, agent definitions, and `judgeval` integration.
+
+#### `index.html`
+
+The interactive user interface that runs in the browser and communicates with the `app.py` backend.
+
+#### `requirements.txt`
+
+This file lists all the Python dependencies required to run the backend server. This allows others to install the exact same libraries you used.
+
+```text
+Flask
 Flask-Cors
 openai
 judgeval[openai]
+```
 
-README.mdThis file! It provides all the necessary information for another person to understand, set up, and run your project..gitignoreThis is a standard file that tells Git which files and folders to ignore. It's important for keeping the repository clean of temporary files and sensitive information.# Python
+#### `README.md`
+
+This file! It provides all the necessary information for another person to understand, set up, and run your project.
+
+#### `.gitignore`
+
+This is a standard file that tells Git which files and folders to ignore. It's important for keeping the repository clean of temporary files and sensitive information.
+
+```text
+# Python
 __pycache__/
 *.pyc
 *.pyo
@@ -45,4 +149,3 @@ venv/
 
 # Environment files
 .env
-
