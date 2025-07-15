@@ -50,8 +50,8 @@ https://app.judgmentlabs.ai/register
 First, clone the project repository to your local machine.
 
 ```bash
-git clone <your-repository-url>
-cd <repository-name>
+git clone https://github.com/srikardevulapalli/E-commerce-Support-Agent-Grader
+cd E-commerce-Support-Agent-Grader
 ```
 
 ### 3. Create a Virtual Environment
