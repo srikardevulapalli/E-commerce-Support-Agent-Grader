@@ -41,12 +41,9 @@ Follow these steps to get the application running on your local machine.
 * Python 3.8+
 * An active OpenAI API Key
 * Your Judgment Labs API Key and Organization ID
-Ensure you have your JUDGMENT_API_KEY and JUDGMENT_ORG_ID environment variables set to connect to the Judgment Platform.
-
-export JUDGMENT_API_KEY=...
-export JUDGMENT_ORG_ID=...
+Ensure you have your JUDGMENT_API_KEY and JUDGMENT_ORG_ID environment variables set to connect to the Judgment Platform (https://app.judgmentlabs.ai/).
 If you don't have keys, create an account on the platform!
-
+https://app.judgmentlabs.ai/register
 
 ### 2. Clone the Repository
 
