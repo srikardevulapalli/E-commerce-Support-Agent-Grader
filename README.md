@@ -14,6 +14,16 @@ The application sends real traces and evaluation data to your Judgment Labs port
 * **Real-time Score Display:** The frontend immediately displays the actual scores returned by the `judgeval` evaluation for instant feedback.
 * **E-commerce Guardrails:** Includes a basic AI-powered guardrail to ensure test queries are relevant to an e-commerce context.
 
+## About `judgeval`
+
+This project is powered by `judgeval`, an open-source toolkit from Judgment Labs designed for the post-building phase of agent development. It provides the essential tools for tracing and evaluating autonomous, stateful agents.
+
+The core idea is to capture runtime data from agent-environment interactions to enable continuous learning and self-improvement. By tracing every input, output, and tool call, developers can debug agent runs, collect data, and pinpoint performance bottlenecks.
+
+This application specifically uses `judgeval` for two key purposes:
+1.  **Tracing:** The `@judgment.observe` decorator automatically traces every agent run, capturing the full context for debugging and analysis in the Judgment Cloud.
+2.  **Evals:** We use `judgeval`'s powerful evaluation framework to run a suite of scorers on each agent's response. This includes built-in scorers like `AnswerCorrectnessScorer` and `FaithfulnessScorer`, as well as a custom-built `EmpathyScorer` that uses an LLM-as-a-judge to measure a more subjective quality.
+
 ## ⚙️ How It Works
 
 This application uses a client-server architecture:
